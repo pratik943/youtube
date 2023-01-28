@@ -8,9 +8,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract NFT is ERC721, Ownable {
     using Strings for uint256;
 
-    uint public constant MAX_TOKENS = 10000;
+    uint public constant MAX_TOKENS = 555;
     uint private constant TOKENS_RESERVED = 5;
-    uint public price = 100000000000000000;
+    uint public price = 000000000000000000;
     uint256 public constant MAX_MINT_PER_TX = 10;
 
     bool public isSaleActive;
@@ -20,8 +20,8 @@ contract NFT is ERC721, Ownable {
     string public baseUri;
     string public baseExtension = ".json";
 
-    constructor() ERC721("NFT Name", "SYMBOL") {
-        baseUri = "ipfs://xxxxxxxxxxxxxxxxxxxxxxxxxxxxx/";
+    constructor() ERC721("NFT Name", "TEST") {
+        baseUri = "ipfs://Qma3G9y93f3iCPxfhUbwVtzzn9bS2CtBDUMbGts7HnjRkj/";
         for(uint256 i = 1; i <= TOKENS_RESERVED; ++i) {
             _safeMint(msg.sender, i);
         }
