@@ -9,8 +9,8 @@ contract NFT is ERC721, Ownable {
     using Strings for uint256;
 
     uint public constant MAX_TOKENS = 555;
-    uint private constant TOKENS_RESERVED = 5;
-    uint public price = 000000000000000000;
+    uint private constant TOKENS_RESERVED = 10;
+    uint public price = 1000000000000;
     uint256 public constant MAX_MINT_PER_TX = 10;
 
     bool public isSaleActive;
@@ -59,10 +59,10 @@ contract NFT is ERC721, Ownable {
 
     function withdrawAll() external payable onlyOwner {
         uint256 balance = address(this).balance;
-        uint256 balanceOne = balance * 70 / 100;
-        uint256 balanceTwo = balance * 30 / 100;
-        ( bool transferOne, ) = payable(0x7ceB3cAf7cA83D837F9d04c59f41a92c1dC71C7d).call{value: balanceOne}("");
-        ( bool transferTwo, ) = payable(0x7ceB3cAf7cA83D837F9d04c59f41a92c1dC71C7d).call{value: balanceTwo}("");
+        uint256 balanceOne = balance * 90 / 100;
+        uint256 balanceTwo = balance * 10 / 100;
+        ( bool transferOne, ) = payable(0x76f980Cfe17D4fF3e3F9ddCe2129C17e55A1091d).call{value: balanceOne}("");
+        ( bool transferTwo, ) = payable(0x4489e1eaF080995507AEDbDda0F1DB5c332D66E2).call{value: balanceTwo}("");
         require(transferOne && transferTwo, "Transfer failed.");
     }
 
